@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--<link rel="icon" href="assets/img/favicon.ico" type="assets/img/favicon.icoo"> -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="assets/img/image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="assets/img/image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Nexus Online | Music Player</title>
+    <meta name="description" content="Nexus Online Music Player is an Ad-Free Music Player, High Quality MP3 Songs with Metadata | API support, and a latest Design. A large library of songs. developed by ©Arun">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="assets/css/styles.css">
+  </head>
+  <body style="padding-bottom: 50px;background: rgb(0,0,0);">
+    <header class="header-dark" style="color: rgb(205,205,205);padding: 0px 0px 10px;">
+      <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search">
+        <div class="container">
+          <img src="assets/img/PicsArt_23-08-14_20-49-21-967.png" alt="A beautiful image">
+          <a class="navbar-brand" href="#">𝗡𝗲𝘅𝘂𝘀 𝗠𝘂𝘀𝗶𝗰</a>
+          <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="btn btn-primary" role="button" href="https://github.com/SavageArun" target="_blank">Github</a>
+              </li>
+                            <li class="nav-item">
+                              <a class="btn btn-primary" role="button" href="https://instagram.com/Savage_arun" target="_blank">Instagram</a>
+                            </li>
+            <!--  <li class="nav-item">
+                <a class="btn btn-primary" role="button" href="https://facebook.com/Arun78278" target="_blank">Facebook</a> -->
+              </li>                            
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <h1 class="text-center" style="margin: 0px;">𝗡𝗲𝘅𝘂𝘀</h1>
+            <h3 class="text-center" style="color: rgba(249,255,255,0.81);font-family: Bitter, serif;">𝐎𝐧𝐥𝐢𝐧𝐞 𝐌𝐮𝐬𝐢𝐜 𝐏𝐥𝐚𝐲𝐞𝐫 | 𝐏𝐥𝐚𝐲 𝐎𝐧 𝐭𝐡𝐞 𝐖𝐚𝐲</h3>
+            <p class="text-center" style="padding: 0px 5px;">𝗔𝗱-𝗙𝗿𝗲𝗲 | 𝗔𝗣𝗜 𝗜𝗻𝘁𝗲𝗴𝗿𝗮𝘁𝗶𝗼𝗻 | 𝗹𝗮𝘁𝗲𝘀𝘁 𝗗𝗲𝘀𝗶𝗴𝗻</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div>
+      <div class="tab-content">
+        <div class="tab-pane active" role="tabpanel" id="tab-1">
+          <section class="highlight-clean" style="background: #000; color: rgb(249,249,249);padding-top: 20px;">
+            <div class="text-center">
+              <select id="saavn-bitrate">
+                <option value="4">High Quality</option>
+                <option value="3" selected="">Moderate Quality</option>
+                <option value="2">Medium Quality</option>
+                <option value="1">Low Quality</option>
+              </select>
+            </div>
+            <p class="text-center" style="padding: 0px 5px;"></p>
+            <div class="container" style="padding: 0px;">
+              <div class="intro">
+                <form class="text-center" action="#" method="get">
+                  <div style="width: 95%;margin: auto;padding: 3px;" placeholder="Enter Song, Artist or Album name">
+                    <input class="form-control float-left fit-content" type="text" id="saavn-search-box" style="margin: 0px;color: var(--gray-dark);max-width: 100%;width: 75%;" placeholder="Enter Name, Year, Artist">
+                    <button class="btn btn-primary" id="saavn-search-trigger" type="submit" style="text-align: center;" onclick="SaavnSearch()">Search</button>
+                  </div>
+                  <h5 class="text-uppercase text-center" style="color: rgb(165,255,184);">Results</h5>
+                </form>
+              </div>
+              <div id="saavn-results" style="margin-bottom: 20px;">
+                <h5>Featured</h5>
+              </div>
+              <div class="text-center" style="width:100%">
+                <button id="loadmore" style="width: 100%;">Load More</button>
+              </div>
+              <div class="button-container"></div>
+              <script>
+                const buttonTitles = ['2023', 'English Songs', 'Edward Maya', 'Zack Knight', 'Akcent', 'Arijit Singh', 'Pitbull', 'Imran Khan', 'DJ Snake', 'Darshan Raval', 'Jubin Nautiyal', 'Armaan Malik', 'Old Songs', "Adele", "Billie Eilish", "Imagine Dragons", "Ed Sheeran", "Neha Kakkar", "Badshah", "Atif Aslam", "Guru Randhawa", "Shreya Ghoshal", "Tony Kakkar", "Harrdy Sandhu", "Armaan Malik", "Diljit Dosanjh", "Sonu Nigam", "Vishal Dadlani", "Kanika Kapoor", "Sukhwinder Singh", "Sunidhi Chauhan", "Mika Singh", "Shaan", "Mohit Chauhan", "Pritam", "KK", "Yo Yo Honey Singh", "Taylor Swift", "Sia", "Radioactive", "Halsey", "The Chainsmokers", "Drake", "Justin Bieber", "Beyonce", "The Weeknd", "Rihanna", "Lady Gaga", "AC/DC", "Michael Jackson", "The Rolling Stones"];
+                const buttonContainer = document.querySelector('.button-container');
+                buttonTitles.forEach(title => {
+                  const button = document.createElement('button');
+                  button.classList.add('search-toggle');
+                  button.textContent = title;
+                  button.setAttribute('onclick', `doSaavnSearch('${title}')`);
+                  buttonContainer.appendChild(button);
+                });
+              </script>
+              <p class="footer" align="center"> This content is not affiliated with, endorsed, sponsored, or specifically approved by any third party music provider like Gaana, Saavn, Spotify, and is not responsible for any copyright material. <br> We don't serve any music on our servers. <br>
+                <br> Copyright 2023. <br>
+                 <div class="copyright-text">
+                   <p>© <span class="update-year"></span>Designed & Developed By <a href="https://instagram.com/savage_arun" target="_blank">©Arun</a> All Right Reserved </p>
+                <!-- </div>Designed & Developer by ©Arun -->
+              </p>
+              <div style="padding-bottom: 40px;"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div id="audio-player" style="z-index: 99;background: #ffffff33; width: 100%;margin: 0px;color: var(--light);backdrop-filter: blur(4px);border-top-left-radius: 10px;border-top-right-radius: 20px;">
+      <div class="row" style="margin: 0px;">
+        <div class="col-auto fit-content" style="padding: 0px;">
+          <img class="img-fluid d-inline" id="player-image" style="height: 75px;width: 75px;border-radius: 10px;" src="https://i.pinimg.com/originals/ed/54/d2/ed54d2fa700d36d4f2671e1be84651df.jpg" loading="lazy">
+        </div>
+        <div class="col fit-content" style="padding: 0px;">
+          <div style="max-height: 24px;max-width: 95%;word-wrap: normal; padding-left: 20px;">
+            <span id="player-name">Song</span>
+            <span>
+              <br>
+            </span>
+            <span id="player-album">Album</span>
+          </div>
+          <br>
+          <audio id="player" controls="controls" controlsList="nodownload" style="width: 100%;height: 30px; padding-left: 20px; padding-top:5px;">
+            <source id="audioSource" src="">
+            </source> Your browser does not support the audio format.
+          </audio>
+        </div>
+      </div>
+    </div>
+    <!-- floating downloader popup -->
+   <!-- <div class=”float-button” style="width:30px; height:30px; border-radius:50%; background-color:#fff; box-shadow: 0 0 10px #000; cursor:pointer; position:fixed;top:50px; right:20px; z-index:9999;">
+      <!-- download icon -->
+    <!--  <a href="javascript:void(0);" class="btn btn-primary" id="mpopupLink">
+        <img src="https://img.icons8.com/ios/50/000000/download.png">
+      </a>
+    </div> -->
+
+
+    <style>
+      #saavn-results {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      /* Three columns on desktop */
+      @media screen and (min-width: 992px) {
+        .song-container {
+          width: calc(33.33% - 20px);
+          margin: 0 10px 20px 10px;
+        }
+      }
+
+      /* Two columns on desktop */
+      @media screen and (min-width: 768px) and (max-width: 991px) {
+        .song-container {
+          width: calc(50% - 20px);
+          margin: 0 10px 20px 10px;
+        }
+      }
+
+      /* One column on mobile */
+      @media screen and (max-width: 767px) {
+        .song-container {
+          width: calc(100% - 20px);
+          margin: 0 10px 20px 10px;
+        }
+      }
+
+      .search-toggle-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 95%;
+        margin: 0 auto;
+      }
+
+      .search-toggle {
+        background: rgba(0, 0, 0, 0.1);
+        color: #fff;
+        font-size: 18px;
+        font-family: Aclonica, sans-serif;
+        padding: 6px;
+        border-style: none;
+      }
+
+      .search-toggle:nth-child(10n+1) {
+        color: #ceea82
+      }
+
+      .search-toggle:nth-child(10n+2) {
+        color: #70cee2
+      }
+
+      .search-toggle:nth-child(10n+3) {
+        color: #ef2b2d
+      }
+
+      .search-toggle:nth-child(10n+4) {
+        color: #23b805
+      }
+
+      .search-toggle:nth-child(10n+5) {
+        color: var(--primary)
+      }
+
+      .search-toggle:nth-child(10n+6) {
+        color: #cee007
+      }
+
+      .search-toggle:nth-child(10n+7) {
+        color: #ff77a8
+      }
+
+      .search-toggle:nth-child(10n+8) {
+        color: #21a9af
+      }
+
+      .search-toggle:nth-child(10n+9) {
+        color: var(--warning)
+      }
+
+      .search-toggle:nth-child(10n+10) {
+        color: #e316e7
+      }
+    </style>
+    <style>
+      .mpopup {
+        position: fixed;
+        overflow: auto;
+        overflow-x: hidden;
+        top: 20px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        width: auto;
+        height: auto;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: none;
+      }
+
+      ul.nobullets {
+        list-style-type: none;
+        /* Remove bullets */
+        padding: 0;
+        /* Remove padding */
+        margin: 0;
+        /* Remove margins */
+      }
+    </style>
+    <!-- Modal popup box -->
+    <div id="mpopupBox" class="mpopup">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" style="display:inline;">
+          <span class="close">×</span>
+          <h2>Downloads</h2>
+        </div>
+        <div class="modal-body">
+          <!-- list of songs, with a small cover art pic, name, album name -->
+          <row>
+            <ul id="download-list" class="nobullets">
+              <!--<li><div class="col"><img id="download-cover" src="https://i.pinimg.com/originals/ed/54/d2/ed54d2fa700d36d4f2671e1be84651df.jpg" width="50px"><div style="display: inline;"><span id="download-name">Song</span><span id="download-album">Album</span><br><span id="download-size">Size</span><span id="download-status" style="color:green">Compiling.</span></div></div><hr></li>-->
+            </ul>
+          </row>
+        </div>
+        <div class="modal-footer" style="text-align: center;">
+          <p>Don't flood the Media Server, Have patience...</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Select modal
+      var mpopup = document.getElementById('mpopupBox');
+      // Select trigger link
+      var mpLink = document.getElementById("mpopupLink");
+      // Select close action element
+      var close = document.getElementsByClassName("close")[0];
+      // Open modal once the link is clicked
+      mpLink.onclick = function() {
+        mpopup.style.display = "block";
+      };
+      // Close modal once close element is clicked
+      close.onclick = function() {
+        mpopup.style.display = "none";
+      };
+      // Close modal when user clicks outside of the modal box
+      window.onclick = function(event) {
+        if (event.target == mpopup) {
+          mpopup.style.display = "none";
+        }
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+    <script src="assets/js/saavn-search.js"></script>
+  </body>
+</html>
